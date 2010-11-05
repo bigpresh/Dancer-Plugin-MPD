@@ -13,7 +13,7 @@ register mpd => sub {
     if ($mpd && $mpd->ping) {
         return $mpd;
     } else {
-        return $mpd = _connect;
+        return $mpd = _connect();
     }
 };
 
