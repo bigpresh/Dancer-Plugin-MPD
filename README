@@ -1,0 +1,54 @@
+NAME
+    Dancer::Plugin::MPD - easy connection to MPD from Dancer apps
+
+DESCRIPTION
+    Provides an easy way to connect to MPD (www.wusicpd.org) from a Dancer
+    app. Handles obtaining the connection, making sure the connection is
+    still alive, and reconnecting if not.
+
+SYNOPSIS
+    In your Dancer app, calling the `mpd' keyword will get you an MPD
+    connection.
+
+        use Dancer::Plugin::MPD;
+        my $current_song = mpd->current;
+        mpd->next;
+
+AUTHOR
+    David Precious, `<davidp at preshweb.co.uk>'
+
+BUGS
+    Please report any bugs or feature requests to `bug-dancer-plugin-mpd at
+    rt.cpan.org', or through the web interface at
+    http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Dancer-Plugin-MPD. I will
+    be notified, and then you'll automatically be notified of progress on
+    your bug as I make changes.
+
+SUPPORT
+    You can find documentation for this module with the perldoc command.
+
+        perldoc Dancer::Plugin::MPD
+
+    You can also look for information at:
+
+    * RT: CPAN's request tracker
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Dancer-Plugin-MPD
+
+    * AnnoCPAN: Annotated CPAN documentation
+        http://annocpan.org/dist/Dancer-Plugin-MPD
+
+    * CPAN Ratings
+        http://cpanratings.perl.org/d/Dancer-Plugin-MPD
+
+    * Search CPAN
+        http://search.cpan.org/dist/Dancer-Plugin-MPD/
+
+LICENSE AND COPYRIGHT
+    Copyright 2010 David Precious.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the terms of either: the GNU General Public License as published
+    by the Free Software Foundation; or the Artistic License.
+
+    See http://dev.perl.org/licenses/ for more information.
+
