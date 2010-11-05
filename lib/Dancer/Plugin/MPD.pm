@@ -2,7 +2,7 @@ package Dancer::Plugin::MPD;
 
 use warnings;
 use strict;
-use Dancer ':syntax';
+use Dancer::Plugin;
 use Audio::MPD;
 
 our $VERSION = '0.01';
