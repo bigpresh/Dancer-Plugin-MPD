@@ -13,7 +13,7 @@ WriteMakefile(
     PL_FILES            => {},
     PREREQ_PM => {
         'Test::More' => 0,
-        'Dancer'     => 1.904,
+        'Dancer'     => 1.1904,
         'Audio::MPD' => 1.100430 ,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
