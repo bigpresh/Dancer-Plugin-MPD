@@ -48,7 +48,7 @@ Dancer::Plugin::MPD - easy connection to MPD from Dancer apps
 
 =head1 DESCRIPTION
 
-Provides an easy way to connect to MPD (L<www.wusicpd.org>) from a L<Dancer>
+Provides an easy way to connect to MPD (L<www.musicpd.org>) from a L<Dancer>
 app.  Handles obtaining the connection, making sure the connection is still
 alive, and reconnecting if not.
 
