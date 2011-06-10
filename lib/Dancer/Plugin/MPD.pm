@@ -5,7 +5,7 @@ use strict;
 use Dancer::Plugin;
 use Audio::MPD;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 my $mpd;
 
 register mpd => sub {
@@ -64,9 +64,30 @@ connection.
     mpd->next;
 
 
+=head1 CONFIGURATION
+
+L<Audio::MPD> does sensible things by default, so in the majority of cases (MPD
+running on the same host as the app, no password needed, and happy to reuse the
+connection for performance), no configuration will be required at all.
+
+However, the following config settings can be used in your app's C<config.yml>:
+
+    plugins:
+        MPD:
+            host: localhost
+            port: 6600
+            password: verysecret
+            conntype: reuse
+
+
 =head1 AUTHOR
 
 David Precious, C<< <davidp at preshweb.co.uk> >>
+
+=head1 ACKNOWLEDGEMENTS
+
+Alan Berndt
+
 
 =head1 BUGS
 
@@ -110,7 +131,7 @@ L<http://search.cpan.org/dist/Dancer-Plugin-MPD/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2010 David Precious.
+Copyright 2010-11 David Precious.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
