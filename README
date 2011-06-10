@@ -2,7 +2,7 @@ NAME
     Dancer::Plugin::MPD - easy connection to MPD from Dancer apps
 
 DESCRIPTION
-    Provides an easy way to connect to MPD (www.wusicpd.org) from a Dancer
+    Provides an easy way to connect to MPD (www.musicpd.org) from a Dancer
     app. Handles obtaining the connection, making sure the connection is
     still alive, and reconnecting if not.
 
@@ -14,8 +14,27 @@ SYNOPSIS
         my $current_song = mpd->current;
         mpd->next;
 
+CONFIGURATION
+    Audio::MPD does sensible things by default, so in the majority of cases
+    (MPD running on the same host as the app, no password needed, and happy
+    to reuse the connection for performance), no configuration will be
+    required at all.
+
+    However, the following config settings can be used in your app's
+    `config.yml':
+
+        plugins:
+            MPD:
+                host: localhost
+                port: 6600
+                password: verysecret
+                conntype: reuse
+
 AUTHOR
     David Precious, `<davidp at preshweb.co.uk>'
+
+ACKNOWLEDGEMENTS
+    Alan Berndt
 
 BUGS
     Please report any bugs or feature requests to `bug-dancer-plugin-mpd at
@@ -44,7 +63,7 @@ SUPPORT
         http://search.cpan.org/dist/Dancer-Plugin-MPD/
 
 LICENSE AND COPYRIGHT
-    Copyright 2010 David Precious.
+    Copyright 2010-11 David Precious.
 
     This program is free software; you can redistribute it and/or modify it
     under the terms of either: the GNU General Public License as published
