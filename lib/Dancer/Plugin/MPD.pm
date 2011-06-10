@@ -26,14 +26,14 @@ sub _connect {
     # (MPD listening on localhost, on port 6600, with no password set), no
     # configuration will be needed at all.
     my %mpd_conf;
-    for my $setting (qw(host port password)) {
+    for my $setting (qw(host port password conntype)) {
         $mpd_conf{$setting} = $conf->{$setting} if exists $conf->{$setting};
     }
 
     # Audio::MPD's default conntype is 'once', which re-establishes a connection
     # for every request.  For performance, we probably want to re-use a
     # connection.
-    $conf->{conntype} ||= 'reuse';
+    $mpd_conf{conntype} ||= 'reuse';
 
     return  Audio::MPD->new(\%mpd_conf);
 }
