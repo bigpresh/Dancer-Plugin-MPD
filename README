@@ -30,6 +30,18 @@ CONFIGURATION
                 password: verysecret
                 conntype: reuse
 
+HOOKS
+    * `mpd_connected'
+        Called when a connection is established, and receives the Audio::MPD
+        object as its parameter.
+
+            hook 'mpd_connected' => sub {
+                my $mpd = shift;
+                $mpd->repeat(1);
+                $mpd->random(1);
+                $mpd->play;
+            };
+
 AUTHOR
     David Precious, `<davidp at preshweb.co.uk>'
 
@@ -63,7 +75,7 @@ SUPPORT
         http://search.cpan.org/dist/Dancer-Plugin-MPD/
 
 LICENSE AND COPYRIGHT
-    Copyright 2010-11 David Precious.
+    Copyright 2010-12 David Precious.
 
     This program is free software; you can redistribute it and/or modify it
     under the terms of either: the GNU General Public License as published
