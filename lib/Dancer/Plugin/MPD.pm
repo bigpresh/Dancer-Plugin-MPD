@@ -35,10 +35,15 @@ sub _connect {
     # connection.
     $mpd_conf{conntype} ||= 'reuse';
 
-    return  Audio::MPD->new(\%mpd_conf);
+    my $mpd = Audio::MPD->new(\%mpd_conf);
+
+    Dancer::Factory::Hook->instance->execute_hooks('mpd_connected', $mpd);
+
+    return $mpd;
 }
 
    
+Dancer::Factory::Hook->instance->install_hooks(qw(mpd_connected));
 
 register_plugin;
 
@@ -79,6 +84,24 @@ However, the following config settings can be used in your app's C<config.yml>:
             password: verysecret
             conntype: reuse
 
+
+=head1 HOOKS
+
+=over 4
+
+=item * C<mpd_connected>
+
+Called when a connection is established, and receives the L<Audio::MPD> object
+as its parameter.
+
+    hook 'mpd_connected' => sub {
+        my $mpd = shift;
+        $mpd->repeat(1);
+        $mpd->random(1);
+        $mpd->play;
+    };
+
+=back
 
 =head1 AUTHOR
 
@@ -131,7 +154,7 @@ L<http://search.cpan.org/dist/Dancer-Plugin-MPD/>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2010-11 David Precious.
+Copyright 2010-12 David Precious.
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
