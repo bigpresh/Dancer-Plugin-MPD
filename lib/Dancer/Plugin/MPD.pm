@@ -5,7 +5,7 @@ use strict;
 use Dancer::Plugin;
 use Audio::MPD;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 my $mpd;
 
 register mpd => sub {
